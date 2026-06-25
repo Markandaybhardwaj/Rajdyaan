@@ -1,0 +1,262 @@
+/* ===================================================================
+   Admin Leads Dashboard — Rajdhyaan
+   Brand: #3B1F0A (deep brown), #B5922A (gold), #FAF6EE (cream)
+   =================================================================== */
+
+.page {
+  font-family: 'Inter', sans-serif;
+  color: #3B1F0A;
+}
+
+/* ---- Header ---- */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #3B1F0A;
+  margin: 0;
+}
+.subtitle {
+  font-size: 0.85rem;
+  color: #8a7460;
+  margin: 0.25rem 0 0;
+}
+.refreshBtn {
+  padding: 0.6rem 1.25rem;
+  border: 1.5px solid #B5922A;
+  border-radius: 8px;
+  background: transparent;
+  color: #B5922A;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.refreshBtn:hover {
+  background: #B5922A;
+  color: #fff;
+}
+.refreshBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ---- Stats ---- */
+.statsRow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.statCard {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  border: 1px solid rgba(59,31,10,0.06);
+  box-shadow: 0 2px 12px rgba(59,31,10,0.04);
+}
+.statNum {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #B5922A;
+}
+.statLabel {
+  font-size: 0.78rem;
+  color: #8a7460;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 0.25rem;
+}
+
+/* ---- Controls Row (Tabs + Search) ---- */
+.controlsRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+.tabs {
+  display: flex;
+  gap: 0.5rem;
+}
+.tab {
+  padding: 0.6rem 1.25rem;
+  border-radius: 8px;
+  border: 1.5px solid rgba(59,31,10,0.12);
+  background: #fff;
+  color: #6b5540;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.tab:hover {
+  border-color: #B5922A;
+  color: #B5922A;
+}
+.tabActive {
+  background: linear-gradient(135deg, #B5922A, #d4a843);
+  color: #fff;
+  border-color: #B5922A;
+}
+.tabActive:hover {
+  color: #fff;
+}
+.searchInput {
+  padding: 0.6rem 1rem;
+  border: 1.5px solid rgba(59,31,10,0.12);
+  border-radius: 8px;
+  background: #fff;
+  font-size: 0.85rem;
+  color: #3B1F0A;
+  min-width: 220px;
+  transition: border-color 0.2s;
+}
+.searchInput:focus {
+  outline: none;
+  border-color: #B5922A;
+  box-shadow: 0 0 0 3px rgba(181,146,42,0.12);
+}
+.searchInput::placeholder {
+  color: #b8a494;
+}
+
+/* ---- Error ---- */
+.errorBox {
+  background: #fef2f2;
+  border: 1px solid #fca5a5;
+  color: #991b1b;
+  padding: 1rem 1.25rem;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  margin-bottom: 1.5rem;
+}
+
+/* ---- Empty State ---- */
+.emptyState {
+  text-align: center;
+  padding: 3rem;
+  color: #8a7460;
+  font-size: 0.95rem;
+}
+
+/* ---- Table ---- */
+.tableWrap {
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid rgba(59,31,10,0.06);
+  box-shadow: 0 2px 12px rgba(59,31,10,0.04);
+  overflow-x: auto;
+}
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.84rem;
+}
+.table thead tr {
+  background: #3B1F0A;
+}
+.table th {
+  color: #FAF6EE;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.72rem;
+  padding: 0.85rem 1rem;
+  text-align: left;
+  white-space: nowrap;
+}
+.table tbody tr {
+  border-bottom: 1px solid rgba(59,31,10,0.06);
+  transition: background 0.15s;
+}
+.table tbody tr:hover {
+  background: rgba(181,146,42,0.04);
+}
+.table td {
+  padding: 0.85rem 1rem;
+  vertical-align: top;
+}
+
+/* ---- Cell Variants ---- */
+.tdIndex {
+  color: #b8a494;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-align: center;
+  min-width: 32px;
+}
+.tdTimestamp {
+  color: #8a7460;
+  font-size: 0.78rem;
+  white-space: nowrap;
+  min-width: 140px;
+}
+.tdName {
+  font-weight: 600;
+  color: #3B1F0A;
+  white-space: nowrap;
+}
+.tdMessage {
+  color: #6b5540;
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.phoneLink, .emailLink {
+  color: #B5922A;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+  white-space: nowrap;
+}
+.phoneLink:hover, .emailLink:hover {
+  color: #3B1F0A;
+  text-decoration: underline;
+}
+.productBadge, .subjectBadge {
+  display: inline-block;
+  background: rgba(181,146,42,0.1);
+  color: #8a6e20;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+  .statsRow {
+    grid-template-columns: 1fr;
+  }
+  .controlsRow {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .searchInput {
+    min-width: unset;
+    width: 100%;
+  }
+  .tabs {
+    width: 100%;
+  }
+  .tab {
+    flex: 1;
+    text-align: center;
+  }
+}

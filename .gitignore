@@ -1,0 +1,27 @@
+# Dependency directories
+node_modules/
+rajdyaan-frontend/node_modules/
+rajdyaan-backend/node_modules/
+
+# Local env files
+.env
+.env.local
+.env*.local
+rajdyaan-frontend/.env.local
+rajdyaan-backend/.env
+
+# Build outputs
+.next/
+rajdyaan-frontend/.next/
+rajdyaan-frontend/out/
+rajdyaan-frontend/build/
+
+# IDE / System files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Executables/Binaries
+ngrok
+ngrok.exe
