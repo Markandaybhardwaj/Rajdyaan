@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
+  eslint: {                        // ← yeh add karo
+    ignoreDuringBuilds: true,      // ← yeh add karo
+  },                               // ← yeh add karo
   images: {
     remotePatterns: [
       {
