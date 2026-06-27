@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@react-email/components": "^0.5.7",
+     "tsx": "^4.21.0",
     "@react-email/render": "^1.4.0",
     "axios": "^1.16.0",
     "bcryptjs": "^3.0.3",
@@ -37,7 +38,7 @@
     "slugify": "^1.6.9"
   },
   "devDependencies": {
-    "nodemon": "^3.1.14",
-    "tsx": "^4.21.0"
+    "nodemon": "^3.1.14"
+   
   }
 }
