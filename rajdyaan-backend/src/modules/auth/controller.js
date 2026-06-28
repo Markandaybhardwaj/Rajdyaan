@@ -58,12 +58,13 @@ export const login = asyncHandler(async (req, res) => {
 // Clears the JWT cookie
 // ---------------------------------------------------------------------------
 export const logout = asyncHandler(async (_req, res) => {
+  const isProd = process.env.NODE_ENV === 'production';
   res
     .status(200)
     .cookie('token', '', {
       httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: 'strict',
+      secure: isProd,
+      sameSite: isProd ? 'none' : 'lax',
       maxAge: 0, // expire immediately
     })
     .json(new ApiResponse(200, null, 'Logged out successfully'));
@@ -141,18 +142,19 @@ export const resetPassword = asyncHandler(async (req, res) => {
   await resetPasswordWithToken(userId, newPassword);
 
   // Clear the resetToken cookie and any existing session cookie
+  const isProd = process.env.NODE_ENV === 'production';
   res
     .status(200)
     .cookie('resetToken', '', {
       httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: 'strict',
+      secure: isProd,
+      sameSite: isProd ? 'none' : 'lax',
       maxAge: 0,
     })
     .cookie('token', '', {
       httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: 'strict',
+      secure: isProd,
+      sameSite: isProd ? 'none' : 'lax',
       maxAge: 0,
     })
     .json(new ApiResponse(200, null, 'Password reset successful — please log in with your new password'));
