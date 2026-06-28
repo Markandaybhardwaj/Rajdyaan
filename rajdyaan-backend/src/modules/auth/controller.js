@@ -34,7 +34,7 @@ export const register = asyncHandler(async (req, res) => {
   res
     .status(201)
     .cookie('token', token, getCookieOptions())
-    .json(new ApiResponse(201, { user }, 'Registration successful'));
+    .json(new ApiResponse(201, { user, token }, 'Registration successful'));
 });
 
 // ---------------------------------------------------------------------------
@@ -50,7 +50,7 @@ export const login = asyncHandler(async (req, res) => {
   res
     .status(200)
     .cookie('token', token, getCookieOptions())
-    .json(new ApiResponse(200, { user }, 'Login successful'));
+    .json(new ApiResponse(200, { user, token }, 'Login successful'));
 });
 
 // ---------------------------------------------------------------------------
@@ -81,7 +81,7 @@ export const getMe = asyncHandler(async (req, res) => {
     throw new ApiError(404, 'User not found');
   }
 
-  res.status(200).json(new ApiResponse(200, { user }, 'User profile'));
+  res.status(200).json(new ApiResponse(200, { user, token: req.token }, 'User profile'));
 });
 
 // ---------------------------------------------------------------------------

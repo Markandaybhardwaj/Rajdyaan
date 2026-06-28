@@ -18,6 +18,9 @@ const useAuthStore = create((set) => ({
 
       if (res.ok) {
         const data = await res.json();
+        if (data.data && data.data.token) {
+          document.cookie = `token=${data.data.token}; path=/; max-age=604800; SameSite=Lax;`;
+        }
         set({ user: data.data.user, isAuthenticated: true, isLoading: false });
       } else {
         set({ user: null, isAuthenticated: false, isLoading: false });
@@ -37,6 +40,7 @@ const useAuthStore = create((set) => ({
         },
         credentials: 'include',
       });
+      document.cookie = 'token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT; SameSite=Lax;';
       set({ user: null, isAuthenticated: false });
     } catch (error) {
       console.error('Logout failed', error);

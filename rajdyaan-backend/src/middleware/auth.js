@@ -19,6 +19,7 @@ const protect = (req, _res, next) => {
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     req.user = { id: decoded.id, role: decoded.role };
+    req.token = token; // Store token on request for potential frontend synchronization
     next();
   } catch (err) {
     if (err.name === 'TokenExpiredError') {

@@ -35,6 +35,11 @@ export default function LoginPage() {
         throw new Error(data.message || 'Login failed');
       }
 
+      // Set cookie on client side so frontend middleware can access it
+      if (data.data && data.data.token) {
+        document.cookie = `token=${data.data.token}; path=/; max-age=604800; SameSite=Lax;`;
+      }
+
       // Success
       await useAuthStore.getState().checkAuth();
       useWishlistStore.getState().syncToServer();
